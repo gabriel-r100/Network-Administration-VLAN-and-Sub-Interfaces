@@ -17,12 +17,38 @@ We were tasked with the following:
 3. Next we set a default route pointing to the ISP router at 64.35.35.1.
 4. Finally, we test by pinging a Google DNS server at 8.8.8.8, this ensures that our gateway has an internet connection.
 
-![Upstream_Interface_Configuration](https://github.com/gabriel-r100/Network-Administration-VLAN-and-Sub-Interfaces/assets/55646808/01dde3a3-1b71-4503-ba8f-9b32bd408134)
+    ![Upstream_Interface_Configuration](https://github.com/gabriel-r100/Network-Administration-VLAN-and-Sub-Interfaces/assets/55646808/01dde3a3-1b71-4503-ba8f-9b32bd408134)
 
-## Configuring Management VLAN and Management Sub-Interface
+## Configuring Management IPs, Segmented VLANs, Router Sub-Interfaces, and Testing Connectivity
+1. First I enable the internal port that will be the default gateway for our devices, create a sub-interface with VLAN 1000 for management of our network equipment and assign it the IP address of `10.251.251.1`.
 
-## Assign Private IP Addresses to Our Networking Equipment
+    ![serverRouterVlan1000](https://github.com/gabriel-r100/Network-Administration-VLAN-and-Sub-Interfaces/assets/55646808/05b6fcb0-dde2-4c3f-9e75-0b045f44044e)
+   
+2. I then configure the server room switch uplink to be a trunk port, then I create an interface `VLAN1000`, create VLAN1000 on the switch, and assign interface `VLAN1000` an IP address of `10.251.251.2`. I also added the default router of `10.251.251.1` and confirm it can reach it by pinging the IP address.
 
-## Setting up DHCP Pools and Static IP Pools for Our End Users
+    ![2-ConfigManagement-ServerRmSwitch](https://github.com/gabriel-r100/Network-Administration-VLAN-and-Sub-Interfaces/assets/55646808/6ea492c5-3f49-4e9f-af4a-833ec3fea69b)
+
+3. Next, I configure the uplink port from the 1st floor switch to the server room switch. I create `VLAN 1000`, create the interface `VLAN1000`, assign it the IP address of `10.251.251.3`, add the default-gateway of 10.251.251.1, and test connectivity to our router. I repeat the same steps following the IP addresses on the network diagram.
+
+    ![2-ConfigManagement-1stFloorSwitch-1](https://github.com/gabriel-r100/Network-Administration-VLAN-and-Sub-Interfaces/assets/55646808/17287d90-8834-4ca6-a0e2-64b3d3ec42cf)
+
+4. After deciding which VLANs we will be using for each department, we add them to each of the switches, and create the sub-interfaces on the router for each VLAN.<br>
+      a. VLAN1000 for management<br>
+      b. VLAN50 for the support department<br>
+      c. VLAN40 for the NOC department<br>
+      d. VLAN30 for the NE department<br>
+
+    ![2-ConfigManagement-ServerSW-VLAN-names](https://github.com/gabriel-r100/Network-Administration-VLAN-and-Sub-Interfaces/assets/55646808/fd664c9f-6700-44b7-843b-6c41141ba614)
+    ![2-ConfigManagement-ServerRmRouter-Sub-Interfaces-1](https://github.com/gabriel-r100/Network-Administration-VLAN-and-Sub-Interfaces/assets/55646808/c70629bd-184d-4fd6-a7a2-5974d532738c)
+
+5. I then add the VLANs to the 1st-3rd floor switches. For interfaces I know are going to house an endpoint, I set them to access mode and assign the proper VLAN.
+
+    ![2-ConfigManagement-1stFloorSwitch-VLANs-AccessMode](https://github.com/gabriel-r100/Network-Administration-VLAN-and-Sub-Interfaces/assets/55646808/d120a3ee-b213-47cd-9fc1-baf8697f1e2c)
+   
+6. Finally, we statically assign IPs to the support department PCs and ensure they can reach the gateway on their vlan at `192.168.50.1`
+
+    ![2-ConfigManagement-1stFloorSupportPC-ipconfig](https://github.com/gabriel-r100/Network-Administration-VLAN-and-Sub-Interfaces/assets/55646808/c77cf8d1-25ed-4138-80d6-4bc31a309f0b)
+
+## Setting up DHCP Pools for Our End Users
 
 ## Setting Up NAT Rules to Allow Access to the Internet (8.8.8.8)

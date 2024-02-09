@@ -19,6 +19,9 @@ We were tasked with the following:
 
     ![Upstream_Interface_Configuration](https://github.com/gabriel-r100/Network-Administration-VLAN-and-Sub-Interfaces/assets/55646808/01dde3a3-1b71-4503-ba8f-9b32bd408134)
 
+![NetworkAdminLab-RouterPingingGoogleDNS](https://github.com/gabriel-r100/Network-Administration-VLAN-and-Sub-Interfaces/assets/55646808/d1f441dd-0e47-4351-9b85-c4b4a4543ec3)
+
+
 ## Configuring Management IPs, Segmented VLANs, Router Sub-Interfaces, and Testing Connectivity
 1. First I enable the internal port that will be the default gateway for our devices, create a sub-interface with VLAN 1000 for management of our network equipment and assign it the IP address of `10.251.251.1`.
 
@@ -48,6 +51,7 @@ We were tasked with the following:
 6. Finally, we statically assign IPs to the support department PCs and ensure they can reach the gateway on their vlan at `192.168.50.1`
 
     ![2-ConfigManagement-1stFloorSupportPC-ipconfig](https://github.com/gabriel-r100/Network-Administration-VLAN-and-Sub-Interfaces/assets/55646808/c77cf8d1-25ed-4138-80d6-4bc31a309f0b)
+    ![NetworkAdminLab-InternalConnectivityTest](https://github.com/gabriel-r100/Network-Administration-VLAN-and-Sub-Interfaces/assets/55646808/5c550596-1add-443b-8bc2-37e4aaca756b)
 
 ## Setting up DHCP Pools for Our End Users
 

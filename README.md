@@ -15,6 +15,6 @@ We were tasked with the following:
 1. We ensure the upstream physical port (g0/0) is up.
 2. We then create a sub-interface of g0/0.222, with an dot1q encapsulation of VLAN 222 (as advised by the ISP), and set a static IP of 64.35.35.2 (second available IP from the given subnet).
 3. Next we set a default route pointing to the ISP router at 64.35.35.1.
-4. Finally, we test by pinging a Google DNS server at 8.8.8.8
+4. Finally, we test by pinging a Google DNS server at 8.8.8.8, this ensures that our gateway has an internet connection.
 
 ![Upstream_Interface_Configuration](https://github.com/gabriel-r100/Network-Administration-VLAN-and-Sub-Interfaces/assets/55646808/01dde3a3-1b71-4503-ba8f-9b32bd408134)

@@ -15,7 +15,7 @@ We were tasked with the following:
 
 
 <details>
-    <summary><h2>Upstream Interface and Creating a Default Route</h2></summary>
+    <summary><h2>Internet-Facing Interface and Creating a Default Route</h2></summary>
     1. We ensure the upstream physical port (g0/0) is up.<br>
     2. We then create a sub-interface of g0/0.222, with an dot1q encapsulation of VLAN 222 (as advised by the ISP), and set a static IP of 64.35.35.2 (second available IP from the given subnet).<br>
     3. Next we set a default route pointing to the ISP router at 64.35.35.1.<br>

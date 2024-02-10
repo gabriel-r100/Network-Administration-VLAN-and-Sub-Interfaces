@@ -22,10 +22,9 @@ We were tasked with the following:
     4. Finally, we test by pinging a Google DNS server at 8.8.8.8, this ensures that our gateway has an internet connection.<br>
     
    ![Upstream_Interface_Configuration](https://github.com/gabriel-r100/Network-Administration-VLAN-and-Sub-Interfaces/assets/55646808/01dde3a3-1b71-4503-ba8f-9b32bd408134)
-    
-   ![NetworkAdminLab-RouterPingingGoogleDNS](https://github.com/gabriel-r100/Network-Administration-VLAN-and-Sub-Interfaces/assets/55646808/d1f441dd-0e47-4351-9b85-c4b4a4543ec3)
-
 </details>
+
+![NetworkAdminLab-RouterPingingGoogleDNS](https://github.com/gabriel-r100/Network-Administration-VLAN-and-Sub-Interfaces/assets/55646808/d1f441dd-0e47-4351-9b85-c4b4a4543ec3)
 
 
 
@@ -55,8 +54,9 @@ We were tasked with the following:
        
     6. Finally, we statically assign IPs to the support department PCs and ensure they can reach the gateway on their vlan at `192.168.50.1`
    ![2-ConfigManagement-1stFloorSupportPC-ipconfig](https://github.com/gabriel-r100/Network-Administration-VLAN-and-Sub-Interfaces/assets/55646808/c77cf8d1-25ed-4138-80d6-4bc31a309f0b)
-   ![NetworkAdminLab-InternalConnectivityTest](https://github.com/gabriel-r100/Network-Administration-VLAN-and-Sub-Interfaces/assets/55646808/5c550596-1add-443b-8bc2-37e4aaca756b)
 </details>
+
+![NetworkAdminLab-InternalConnectivityTest](https://github.com/gabriel-r100/Network-Administration-VLAN-and-Sub-Interfaces/assets/55646808/5c550596-1add-443b-8bc2-37e4aaca756b)
 
 
 

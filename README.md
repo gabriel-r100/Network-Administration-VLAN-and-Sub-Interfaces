@@ -63,8 +63,21 @@ We were tasked with the following:
 
 <details>
 <summary><h2>DHCP Reservations and Pools</h2></summary>
-1. Creating DHCP reservation pools for our NOC (`192.168.40.0/24`) and NE (`192.168.30.0/24`) subnets
+    
+1. Creating DHCP reservation pools for our NOC (`192.168.40.0/24`) and NE (`192.168.30.0/24`) subnets. We reserve the first 10 IP address in the pools for static IP future uses.<br>
+   ![3-NOC_DHCP_Pool](https://github.com/gabriel-r100/Network-Administration-VLAN-and-Sub-Interfaces/assets/55646808/48a15d7c-fefd-417a-896a-edf5690b9c6c)
+
+2. I then confirm the switchport on the edgeswitch is set to access and the specific VLAN needed. (In this case, the NOC computer will be on VLAN 40)<br>
+   ![1stFloorNOC-accessport](https://github.com/gabriel-r100/Network-Administration-VLAN-and-Sub-Interfaces/assets/55646808/088cd1ca-3437-4fb9-acf7-95821cd97197)
+
+3. Lastly, I renew the IP address on the endpoints to receive a DHCP configuration.<br>
+   ![1stFloorNOC-IPRenew](https://github.com/gabriel-r100/Network-Administration-VLAN-and-Sub-Interfaces/assets/55646808/9cfa9d4a-e47d-4745-8567-495dfca96104)
+
+4. I repeat this step for the second DHCP pool and add the configuration to the remaining switches. Now all of our endpoints have an IP address.
 </details>
+
+![NetworkAdminLab-DHCP](https://github.com/gabriel-r100/Network-Administration-VLAN-and-Sub-Interfaces/assets/55646808/cfb818bf-7a9f-4df3-a07b-8f4a795891a9)
+
 
 
 

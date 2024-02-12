@@ -84,7 +84,35 @@ We were tasked with the following:
 
 <details>
 <summary><h2>Setting Up NAT Rules for Endpoint Internet Connectivity</h2></summary>
+Now that all of our internal devices have IPs, we will create NAT rules to allow access to the internet for the computers.
+
+1. Using the public IP pool we were provided (`64.35.35.0/29`), we create a NAT pool with the remaining public IPs we have.
+
+   ![4-NATOutRule](https://github.com/gabriel-r100/Network-Administration-VLAN-and-Sub-Interfaces/assets/55646808/32bcc424-0d81-47a5-9109-278d575a1265)
+
+2. Define the scope of IPs that will be allowed to leave our LAN (local area network) by creating an access list which includes only our endpoints' IP addresses.
+
+   ![4-AccessList](https://github.com/gabriel-r100/Network-Administration-VLAN-and-Sub-Interfaces/assets/55646808/c7a471ba-6d0c-468e-b7d6-54c5f7b74fce)
+
+3. I then create the NAT rule which allows devices without the access list to nat out using the public IP addresses, I also enable `overload` which will use PAT (port address translation) when the number of devices surpass the number of public IPs available. In most scenarios we will want to have this enabled as public IP address have a cost.
+
+   ![4-NATRule](https://github.com/gabriel-r100/Network-Administration-VLAN-and-Sub-Interfaces/assets/55646808/ce77f2d2-0c26-4d56-97f1-843adf512f7d)
+
+4. I then apply the `nat in` to the inward interfaces and `nat out` to the outside facing interface.
+
+   ![4-NATInAndOut](https://github.com/gabriel-r100/Network-Administration-VLAN-and-Sub-Interfaces/assets/55646808/665dddaf-c52b-458a-b433-b7097c8abe93)
+
+5. Lastly, I test connectivity to the internet. (Simulated here by pinging a GoogleDNS server IP that is outside of our network.)
+
+   ![4-EndpointConnectivity](https://github.com/gabriel-r100/Network-Administration-VLAN-and-Sub-Interfaces/assets/55646808/ff3b5266-527f-478c-8e14-fb3ce247d137)
+
+6. I also try pinging `8.8.8.8` from our switches to ensure that they are not able to communicate directly over the internet. They are not on our access list, therefore will not be able to NAT out of the LAN.
+
+   ![4-1stFlrSwitchPingGoogle](https://github.com/gabriel-r100/Network-Administration-VLAN-and-Sub-Interfaces/assets/55646808/1ae3f9c7-8da6-4355-916a-5afc9494872e)
+
 </details>
 
 
 
+
+![NetworkAdminLab-FullyConfigured](https://github.com/gabriel-r100/Network-Administration-VLAN-and-Sub-Interfaces/assets/55646808/e632c31d-564b-409a-a629-c707ab228483)
